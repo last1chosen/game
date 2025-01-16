@@ -1,17 +1,19 @@
-const isWinner = (board: Board, player: Player): boolean => {
+import { Token, Board } from "../types/index.ts;
+
+const isWinner = (board: Board, token: Token): boolean => {
     for (let i = 0; i < 4; i++) {
-        if (board[i].every(cell => cell === player)) {
+        if (board[i].every(cell => cell === token)) {
           return true
         }
-        if (board.every(row => row[i] === player)) {
+        if (board.every(row => row[i] === token)) {
           return true;
         }
     }
 
-    if (board.every((row, idx) => row[idx] === player)) {
+    if (board.every((row, idx) => row[idx] === token)) {
 	    return true
     }
-    if (board.every((row, idx) => row[3 - idx] === player)) {
+    if (board.every((row, idx) => row[3 - idx] === token)) {
 	    return true
     }
 
@@ -20,7 +22,7 @@ const isWinner = (board: Board, player: Player): boolean => {
         board[0][0], board[0][3],
         board[3][0], board[3][3]
     ];
-    if (corners.every(corner => corner === player)) {
+    if (corners.every(corner => corner === token)) {
 	    return true
     }
 
@@ -28,10 +30,10 @@ const isWinner = (board: Board, player: Player): boolean => {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             if (
-                board[i][j] === player &&
-                board[i][j + 1] === player &&
-                board[i + 1][j] === player &&
-                board[i + 1][j + 1] === player
+                board[i][j] === token &&
+                board[i][j + 1] === token &&
+                board[i + 1][j] === token &&
+                board[i + 1][j + 1] === token
             ) {
                 return true;
             }
