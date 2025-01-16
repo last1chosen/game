@@ -1,6 +1,6 @@
 import { Token, Board } from "../types/index.ts;
 
-const isWinner = (board: Board, token: Token): boolean => {
+export const isWinner = (board: Board, token: Token): boolean => {
     for (let i = 0; i < 4; i++) {
         if (board[i].every(cell => cell === token)) {
           return true
