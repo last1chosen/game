@@ -9,7 +9,7 @@ describe('isWinner?', () => {
             ['X', 'O', 'X', 'X'],
             ['O', 'X', 'O', 'O']
         ];
-        expect(isWinner(board)).toBeTruthy();
+        expect(isWinner(board, "X")).toBeTruthy();
     });
 
     test('should return true for vertical win', () => {
@@ -19,7 +19,7 @@ describe('isWinner?', () => {
             ['X', 'O', 'X', 'X'],
             ['O', 'O', 'X', 'O']
         ];
-        expect(isWinner(board)).toBeTruthy();
+        expect(isWinner(board, "X")).toBeTruthy();
     });
 
     test('should return true for diagonal win (top-left to bottom-right)', () => {
@@ -29,7 +29,7 @@ describe('isWinner?', () => {
             ['O', 'X', 'X', 'O'],
             ['O', 'O', 'O', 'X']
         ];
-        expect(isWinner(board)).toBeTruthy();
+        expect(isWinner(board, "X")).toBeTruthy();
     });
 
     test('should return true for diagonal win (top-right to bottom-left)', () => {
@@ -39,7 +39,7 @@ describe('isWinner?', () => {
             ['O', 'X', 'X', 'O'],
             ['X', 'O', 'O', 'O']
         ];
-        expect(isWinner(board)).toBeTruthy();
+        expect(isWinner(board, "X")).toBeTruthy();
     });
 
     test('should return true for corner win', () => {
@@ -49,7 +49,7 @@ describe('isWinner?', () => {
             ['O', 'X', 'O', 'O'],
             ['X', 'O', 'X', 'X']
         ];
-        expect(isWinner(board)).toBeTruthy();
+        expect(isWinner(board, "X")).toBeTruthy();
     });
 
     test('should return true for 2x2 box win', () => {
@@ -59,7 +59,7 @@ describe('isWinner?', () => {
             ['O', 'O', 'O', 'X'],
             ['O', 'X', 'X', 'X']
         ];
-        expect(isWinner(board)).toBeTruthy();
+        expect(isWinner(board, "X")).toBeTruthy();
     });
 
     test('should return false when there is no winner', () => {
@@ -69,7 +69,8 @@ describe('isWinner?', () => {
             ['X', 'O', 'X', 'O'],
             ['O', 'X', 'O', 'X']
         ];
-        expect(isWinner(board)).toBeFalsy();
+        expect(isWinner(board, "X")).toBeFalsy();
+        expect(isWinner(board, "O")).toBeFalsy();
     });
 
 });
